@@ -9,13 +9,9 @@ import { UserService } from '../../shared/service/userservice';
 })
 export class ListUserComponent implements OnInit {
 
-  user: User[] = [];
+  users!: User[];
 
-  //customers2: Customer[];
-
-  //selectedCustomer1: Customer;
-
-  //selectedCustomer2: Customer;
+  selectedUser!: User;
 
   constructor(private userService: UserService) { }
 
@@ -28,7 +24,7 @@ export class ListUserComponent implements OnInit {
   cargarProductos(): void {
     this.userService.list().subscribe(
       data => {
-        this.user = data;
+        this.users = data;
       },
       err =>{
         console.log(err);

@@ -1,30 +1,30 @@
 <div class="card">
-    <h5>Session Storage</h5>
+    <h5>Usuarios</h5>
     <p-table #dt1 [value]="users" selectionMode="single" [(selection)]="selectedUser" dataKey="id" [tableStyle]="{'min-width': '50rem'}"
         [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="name" style="width:25%">Nombre<p-sortIcon field="name"></p-sortIcon></th>
-                <th pSortableColumn="mail" style="width:25%">Correo<p-sortIcon field="mail"></p-sortIcon></th>
+                <th pSortableColumn="mail" style="width:25%">Correo<p-sortIcon field="email"></p-sortIcon></th>
                 <th pSortableColumn="phones.number" style="width:25%">Telefono <p-sortIcon field="phones.number"></p-sortIcon></th>
                 <th pSortableColumn="phones.citycode" style="width:25%">Codigo ciudad<p-sortIcon field="phones.citycode"></p-sortIcon></th>
-                <th pSortableColumn="phones.country" style="width:25%">Codigo pais<p-sortIcon field="phones.country"></p-sortIcon></th>
+                <th pSortableColumn="phones.country" style="width:25%">Codigo pais<p-sortIcon field="phones.countrycode"></p-sortIcon></th>
             </tr>
             <tr>
                 <th>
-                    <input pInputText type="text" (input)="dt1.filter($event.target.value, 'name', 'contains')" [value]="$any(dt1).filters['name']?.value" placeholder="Buscar por nombre" class="w-full">
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'name', 'contains')" [value]="$any(dt1).filters['name']?.value" placeholder="Buscar por nombre" class="w-full">
                 </th>
                 <th>
-                    <input pInputText type="text" (input)="dt1.filter($event.target.value, 'country.name', 'contains')" [value]="$any(dt1).filters['mail']?.value" placeholder="Buscar por correo" class="w-full">
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'email', 'contains')" [value]="$any(dt1).filters['email']?.value" placeholder="Buscar por correo" class="w-full">
                 </th> 
                 <th>
-                    <input pInputText type="text" (input)="dt1.filter($event.target.value, 'representative.name', 'contains')" [value]="$any(dt1).filters['phones.number']?.value" placeholder="Buscar por telefono" class="w-full">
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'phones.number', 'contains')" [value]="$any(dt1).filters['phones.number']?.value" placeholder="Buscar por telefono" class="w-full">
                 </th> 
                 <th>
-                    <input pInputText type="text" (input)="dt1.filter($event.target.value, 'representative.name', 'contains')" [value]="$any(dt1).filters['phones.citycode']?.value" placeholder="Buscar por ciudad" class="w-full">
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'phones.citycode', 'contains')" [value]="$any(dt1).filters['phones.citycode']?.value" placeholder="Buscar por ciudad" class="w-full">
                 </th> 
                 <th>
-                    <input pInputText type="text" (input)="dt1.filter($event.target.value, 'status', 'contains')" [value]="$any(dt1).filters['phones.country']?.value" placeholder="Buscar por pais" class="w-full">
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'phones.countrycode', 'contains')" [value]="$any(dt1).filters['phones.countrycode']?.value" placeholder="Buscar por pais" class="w-full">
                 </th>
             </tr>
         </ng-template>
@@ -36,19 +36,19 @@
                 </td>
                 <td>
                     <span class="p-column-title">Correo</span>
-                    <span class="image-text">{{user.mail}}</span>
+                    {{user.email}}
                 </td>
                 <td>
                     <span class="p-column-title">Telefono</span>
-                    <span class="image-text">{{user.phones.number}}</span>
+                    {{user.phones.number}}
                 </td>
                 <td>
                     <span class="p-column-title">Codigo de ciudad</span>
-                    <span [class]="'customer-badge status-' + customer.status">{{user.phones.citycode}}</span>
+                    {{user.phones.citycode}}
                 </td>
                 <td>
                     <span class="p-column-title">Codigo de pais</span>
-                    <span [class]="'customer-badge status-' + customer.status">{{user.phones.country}}</span>
+                    {{user.phones.countrycode}}
                 </td>
             </tr>
         </ng-template>

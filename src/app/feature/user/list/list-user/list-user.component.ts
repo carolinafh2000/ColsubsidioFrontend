@@ -17,8 +17,7 @@ export class ListUserComponent implements OnInit {
 
   ngOnInit() {
         this.cargarProductos();
-  //    this.customerService.getCustomersMedium().then(data => this.customers1 = data);
-  //    this.customerService.getCustomersMedium().then(data => this.customers2 = data);
+
   }
 
   cargarProductos(): void {

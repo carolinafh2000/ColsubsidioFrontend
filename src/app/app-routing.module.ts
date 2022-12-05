@@ -6,7 +6,7 @@ import { ListUserComponent } from './feature/user/list/list-user/list-user.compo
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'list', component: ListUserComponent},
   { path: 'create', component: CreateUserComponent}

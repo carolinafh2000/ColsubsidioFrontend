@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { isNull } from 'util';
 import { Phones, User } from '../../shared/model/user';
 import { UserService } from '../../shared/service/userservice';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-create-user',
@@ -20,6 +22,7 @@ export class CreateUserComponent implements OnInit {
   phones = Array<Phones>;
   constructor(
     private userService: UserService, 
+    private toastr: ToastrService, 
     private router: Router) { }
 
   ngOnInit(): void {
@@ -32,17 +35,23 @@ export class CreateUserComponent implements OnInit {
     const user = new User(this.name, this.email, this.password, phones);    
     this.userService.save(user).subscribe(
       data =>{
-        //this.toastr.success('Estudiante registrado', 'OK', {
-        //  timeOut: 3000, positionClass: 'toast-top-center',
-        //});
+        var message:string = data;
+        console.log("DATAAAAAAAAAAAAA");
+        console.log(data);
+        console.log("MESSAGE");
+        console.log(message);
+
+        this.toastr.success(data.mensaje , 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-center',
+        });
         this.router.navigate(['/list']);
       },
       err =>{
-        //this.toastr.error(err.error.mensaje, 'Fail', 
-        //{
-        //  timeOut: 3000, positionClass: 'toast-top-center',
-        //});
-        this.router.navigate(['/']);
+        this.toastr.error(err.error.mensaje, 'Fail', 
+        {
+          timeOut: 3000, positionClass: 'toast-top-center',
+        });
+        this.router.navigate(['/create']);
       }
     );
   }

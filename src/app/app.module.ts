@@ -22,6 +22,7 @@ import {ButtonModule} from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
+import { ToastrModule } from 'ngx-toastr';
 
     
 
@@ -51,6 +52,7 @@ import {InputTextModule} from 'primeng/inputtext';
     ProgressBarModule,
     HttpClientModule,
     FormsModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [UserService],

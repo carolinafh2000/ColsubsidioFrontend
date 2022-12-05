@@ -1,12 +1,10 @@
-# Front
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 # ColsubsidioFrontend
+
+## Requisitos minimos 
+Instalacion de node v14.21.1 en el siguiente enlace se encuentra el link para descarga https://nodejs.org/es/download/
+
+Realice los siguientes pasos:
 
 ## 1. Clonar el repositorio ejecutar el siguiente comando:
  git clone https://github.com/carolinafh2000/ColsubsidioFrontend.git
